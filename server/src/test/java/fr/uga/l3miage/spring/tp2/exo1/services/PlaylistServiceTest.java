@@ -47,7 +47,7 @@ class PlaylistServiceTest {
         PlaylistEntity playlistEntity = playlistMapper.toEntity(playlistCreationRequest);
         playlistEntity.setSongEntities(Set.of());
         when(songComponent.getSetSongEntity(same(Set.of()))).thenReturn(Set.of());
-        when(playlistComponent.createPlaylistEntity(playlistEntity)).thenReturn(playlistEntity);
+        when(playlistComponent.createPlaylistEntity(any(PlaylistEntity.class))).thenReturn(playlistEntity);
 
         PlaylistResponseDTO responseExpected = playlistMapper.toResponse(playlistEntity);
 
